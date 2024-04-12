@@ -5,9 +5,10 @@ LIBS=`pkg-config --libs x11 egl`
 SRCDIR=src
 BUILDIR=build
 BINPATH=$(BUILDIR)/x11-OpenGL
+DOCSPATH=docs
 HEADERS=$(wildcard $(SRCDIR)/*.h))
 
-.PHONY: debug release clean $(HEADERS)
+.PHONY: debug release docs clean $(HEADERS)
 
 debug: $(BINPATH)-debug
 	@gdb ./$<
@@ -24,5 +25,8 @@ $(BINPATH)-release: $(SRCDIR)/main.c
 	mkdir -p $(BUILDIR)
 	$(CC) $(RFLAGS) -o $(BINPATH)-release $< $(LIBS)
 
+docs: $(DOCSPATH)/x11-egl.latex
+	latexmk -xelatex -output-directory=$(DOCSPATH) $<
+
 clean:
-	rm -rf $(BUILDIR)
+	rm -rf $(BUILDIR) $(DOCSPATH)/{*.aux,*.fdb_latexmk,*.fls,*.log,*.pdf,*.xdv}
