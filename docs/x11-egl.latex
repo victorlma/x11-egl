@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper]{article}
+
+\setlength\parindent{0pt}
+\begin{document}
+
+
+\section{DISCLAIMER}
+
+>> All the info here presented must be taken with a grain of salt. <<
+\\
+
+This is not a documentation per se. 
+\\
+
+This is nothing but my finds and my interpretations of my findings. I'll
+probably get some (a lot) of things wrong. 
+\\
+
+My objective is to fix and update things here as I learn
+
+\cleardoublepage
+\section{OpenGl Libraries}
+
+
+libGLX -> interface between Opengl and x11
+\\
+
+libEGL -> interface between Opengl and some native platform (can be x11)
+\\
+
+libGL -> some set of old opengl + some ~ modern-ish ~ things (varies a lot by implementation)
+\\
+
+libOpenGl -> some set of opengl (similar to libGL) but with the aim of being more consistent
+\\
+
+libWGL -> Windows stuff
+\\
+
+\end{document}
